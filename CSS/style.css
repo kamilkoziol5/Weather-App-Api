@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "TikTok Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  background-color: #111111;
+}
+body .container {
+  background: #45fff9;
+  background: #45fff9;
+  background: linear-gradient(158deg, rgb(69, 255, 249) 0%, rgb(77, 232, 193) 46%, rgb(122, 122, 255) 100%);
+  padding: 45px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+  width: 650px;
+}
+body .container .input-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 15px;
+}
+body .container .input-container input {
+  width: 100%;
+  border-radius: 300px;
+  border: none;
+  outline: none;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  outline: 2px solid transparent;
+  transition: 200ms ease;
+}
+body .container .input-container input::-moz-placeholder {
+  color: #979797;
+}
+body .container .input-container input::placeholder {
+  color: #979797;
+}
+body .container .input-container input:focus, body .container .input-container input:hover {
+  outline: 2px solid #222;
+}
+body .container .input-container input.error {
+  outline: 2px solid rgb(255, 80, 80);
+}
+body .container .input-container .search-btn {
+  background-color: #fff;
+  cursor: pointer;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: 2px solid transparent;
+  padding: 15px;
+  transition: 200ms ease;
+}
+body .container .input-container .search-btn img {
+  width: 15px;
+  height: 15px;
+}
+body .container .input-container .search-btn:hover {
+  background-color: #f0f0f0;
+  outline: 2px solid #222;
+}
+body .container .input-container .error-message {
+  position: absolute;
+  bottom: -25px;
+  left: 10px;
+  color: rgb(255, 51, 51);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: underline;
+  animation: fadeIn 0.35s forwards;
+}
+body .container .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0);
+  transition: 300ms ease;
+  width: 100%;
+}
+body .container .wrapper .weather-image {
+  width: 200px;
+  margin: 20px 0;
+}
+body .container .wrapper h2,
+body .container .wrapper h3 {
+  color: #fff;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .container .wrapper h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  background-color: #111111;
+  padding: 10px 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 15px;
+}
+body .container .wrapper h3 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+body .container .wrapper .info-container-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  gap: 40px;
+}
+body .container .wrapper .info-container-wrapper .info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 2;
+}
+body .container .wrapper .info-container-wrapper .info-container .col {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+body .container .wrapper .info-container-wrapper .info-container .col .animated-icon {
+  transform: scale(1);
+  width: 70px;
+  height: 70px;
+}
+body .container .wrapper .info-container-wrapper .info-container .col .col-column {
+  display: flex;
+  flex-direction: column;
+}
+body .container .wrapper .info-container-wrapper .info-container .col .col-column .col-column-info-value {
+  font-size: 2rem;
+  line-height: 2rem;
+  color: #fff;
+}
+body .container .wrapper .info-container-wrapper .info-container .col .col-column .col-column-info-name {
+  color: #222;
+  margin-top: 10px;
+  font-weight: 800;
+}
+body .container .wrapper.open {
+  opacity: 1;
+  max-height: none;
+  visibility: visible;
+  transform: scale(1);
+}
+body .city-popup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(255, 80, 80);
+  position: fixed;
+  top: 10px;
+  padding: 7px;
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  transition: 200ms ease;
+  transform-origin: center top;
+  opacity: 0;
+  transform: scale(0);
+}
+body .city-popup h3 {
+  font-size: 0.85rem;
+  color: #fff;
+}
+body .city-popup .img-wrapper {
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .city-popup .img-wrapper img {
+  width: 25px;
+}
+body .city-popup.shown {
+  transform: scale(1);
+  opacity: 1;
+}
+body .city-popup i {
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 6px;
+  background-color: #111111;
+  border-radius: 50%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (max-width: 550px) {
+  body .container {
+    padding: 30px 20px;
+  }
+  body .container .input-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .container .input-container .search-btn {
+    width: -moz-max-content;
+    width: max-content;
+    padding: 10px;
+    width: 40px;
+  }
+  body .container .weather-image {
+    width: 150px;
+    margin: 10px 0;
+  }
+  body .container h2 {
+    font-size: 2.2rem;
+    padding: 6px 20px;
+  }
+  body .container h3 {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+  body .container .info-container {
+    gap: 20px;
+  }
+}
+@media (max-width: 450px) {
+  body .container .info-container {
+    flex-direction: column;
+  }
+  body .container .info-container .col .wind-speed-info-column .wind-speed-value,
+  body .container .info-container .col .humidity-info-column .humidity-value {
+    font-size: 1.5rem;
+  }
+}/*# sourceMappingURL=style.css.map */
