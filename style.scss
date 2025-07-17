@@ -10,6 +10,7 @@
 body {
 	min-height: 100dvh;
 	background-color: $grayColor;
+	overflow-y: hidden;
 
 	.app1 {
 		width: 100%;
@@ -17,6 +18,7 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 1rem;
 	}
 
 	.container {
@@ -35,7 +37,6 @@ body {
 		align-items: center;
 		flex-direction: column;
 		justify-content: center;
-		margin: 1rem;
 		max-width: 650px;
 		width: 100%;
 
@@ -265,31 +266,36 @@ body {
 }
 
 @media (max-width: 700px) {
-	body .container {
-		padding: 35px 20px;
-		width: 100%;
+	body {
+		min-height: 100dvh;
+		overflow-y: auto;
 
-		.wrapper {
-			.weather-image {
-				width: 170px;
-			}
+		.container {
+			padding: 15px 20px;
+			width: 100%;
 
-			h2 {
-				font-size: 2.2rem;
-				padding: 6px 20px;
-			}
+			.wrapper {
+				.weather-image {
+					width: 170px;
+				}
 
-			h3 {
-				font-size: 1.8rem;
-				margin-bottom: 25px;
-			}
+				h2 {
+					font-size: 2.2rem;
+					padding: 6px 20px;
+				}
 
-			.info-container {
-				gap: 10px;
-			}
+				h3 {
+					font-size: 1.8rem;
+					margin-bottom: 10px;
+				}
 
-			&.open {
-				max-height: 600px;
+				.info-container {
+					gap: 10px;
+				}
+
+				&.open {
+					max-height: 600px;
+				}
 			}
 		}
 	}
@@ -297,37 +303,56 @@ body {
 
 @media (max-width: 595px) {
 	body .container {
+		.input-container input {
+			padding: 10px;
+			font-size: 0.9rem;
+		}
+
+		.input-container .search-btn {
+			min-width: 40px;
+			height: 40px;
+			padding: 10px;
+		}
+
 		.wrapper {
+			.weather-image {
+				width: 140px;
+				margin: 0 0;
+			}
 			h2 {
-				font-size: 1.95rem;
-				padding: 8px 12px;
+				font-size: 1.75rem;
+				padding: 7px 10px;
 			}
 
 			h3 {
-				font-size: 1.55rem;
+				font-size: 1.4rem;
 			}
 
 			.info-container {
-				gap: 8px;
+				gap: 6px;
 			}
 
 			.info-container-wrapper {
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				gap: 20px;
+				gap: 10px;
 
 				.info-container {
-					gap: 20px;
+					gap: 6px;
 
 					.col {
 						justify-content: center;
+
+						.animated-icon {
+							width: 36px;
+						}
+						.col-column .col-column-info-value {
+							font-size: 1.2rem;
+							line-height: 1.2rem;
+						}
 					}
 				}
-			}
-
-			&.open {
-				max-height: 900px;
 			}
 		}
 	}
@@ -337,10 +362,10 @@ body {
 	body .container .input-container {
 		flex-direction: column;
 		align-items: center;
-		gap: 30px;
+		gap: 10px;
 
 		.error-message {
-			top:55px;
+			top: 55px;
 		}
 	}
 }

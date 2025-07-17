@@ -8,6 +8,7 @@
 body {
   min-height: 100dvh;
   background-color: #111111;
+  overflow-y: hidden;
 }
 body .app1 {
   width: 100%;
@@ -15,6 +16,7 @@ body .app1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 body .container {
   background: #45fff9;
@@ -27,7 +29,6 @@ body .container {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin: 1rem;
   max-width: 650px;
   width: 100%;
 }
@@ -231,8 +232,12 @@ body .city-popup i {
   }
 }
 @media (max-width: 700px) {
+  body {
+    min-height: 100dvh;
+    overflow-y: auto;
+  }
   body .container {
-    padding: 35px 20px;
+    padding: 15px 20px;
     width: 100%;
   }
   body .container .wrapper .weather-image {
@@ -244,7 +249,7 @@ body .city-popup i {
   }
   body .container .wrapper h3 {
     font-size: 1.8rem;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
   }
   body .container .wrapper .info-container {
     gap: 10px;
@@ -254,37 +259,54 @@ body .city-popup i {
   }
 }
 @media (max-width: 595px) {
+  body .container .input-container input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  body .container .input-container .search-btn {
+    min-width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+  body .container .wrapper .weather-image {
+    width: 140px;
+    margin: 0 0;
+  }
   body .container .wrapper h2 {
-    font-size: 1.95rem;
-    padding: 8px 12px;
+    font-size: 1.75rem;
+    padding: 7px 10px;
   }
   body .container .wrapper h3 {
-    font-size: 1.55rem;
+    font-size: 1.4rem;
   }
   body .container .wrapper .info-container {
-    gap: 8px;
+    gap: 6px;
   }
   body .container .wrapper .info-container-wrapper {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
   }
   body .container .wrapper .info-container-wrapper .info-container {
-    gap: 20px;
+    gap: 6px;
   }
   body .container .wrapper .info-container-wrapper .info-container .col {
     justify-content: center;
   }
-  body .container .wrapper.open {
-    max-height: 900px;
+  body .container .wrapper .info-container-wrapper .info-container .col .animated-icon {
+    width: 36px;
+  }
+  body .container .wrapper .info-container-wrapper .info-container .col .col-column .col-column-info-value {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
   }
 }
 @media (max-width: 380px) {
   body .container .input-container {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
   }
   body .container .input-container .error-message {
     top: 55px;
