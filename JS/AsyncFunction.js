@@ -1,4 +1,3 @@
-import { cityAlert } from './CityAlert.js';
 import { cityNotFoundAlert } from './CityNotFoundAlert.js';
 import { renderInfo } from './renderInfo.js';
 
@@ -18,7 +17,8 @@ export async function checkWeather() {
 	const city = input.value.trim();
 
 	if (!city) {
-		cityAlert();
+		
+		cityNotFoundAlert('Please write something');
 		return;
 	}
 
@@ -29,16 +29,11 @@ export async function checkWeather() {
 		const response = await fetch(apiUrl);
 
 		if (!response.ok) {
-			cityNotFoundAlert();
-			input.classList.add('error');
-			setTimeout(() => input.classList.remove('error'), 3000);
-			input.value = '';
+			cityNotFoundAlert('City not found!');
 			return;
 		}
 
 		const data = await response.json();
-
-		console.log(data);
 
 		windSpeed.textContent = data.wind.speed + ' m/s';
 		humidity.textContent = data.main.humidity + ' %';
